@@ -11,6 +11,22 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "mongodb": "^3.3.3",
+    "mongoose": "^5.7.5",
     "morgan": "~1.9.1"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sriza/nari.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sriza/nari/issues"
+  },
+  "homepage": "https://github.com/sriza/nari#readme",
+  "description": ""
 }
