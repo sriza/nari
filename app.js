@@ -9,16 +9,13 @@ var usersRouter = require('./routes/users');
 const mongoose = require('mongoose');
 
 var app = express();
+const uri = "mongodb+srv://sriza:sriza@cluster0-fcqht.mongodb.net/nari?retryWrites=true&w=majority";
 
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://sriza:sriza@cluster0-fcqht.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  console.log('database connected.................');
-  client.close();
-});
+mongoose.connect(uri, { useNewUrlParser: true })
+  .then(() => {
+    console.log('connected to database...........');
+  });
 
 
 // view engine setup
