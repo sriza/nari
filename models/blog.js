@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let gyno_info = new Schema({
+let blogs = new Schema({
     name: String,
-    position: String,
+    title: String,
     blog: String,
     date: {
         type: Date,
@@ -18,5 +18,5 @@ let gyno_info = new Schema({
     }
 });
 
-module.exports = mongoose.model('GyInfo', gyno_info);
+module.exports = mongoose.model('Blogs', blogs);
 

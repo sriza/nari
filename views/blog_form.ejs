@@ -1,13 +1,76 @@
 <html>
 
-<head></head>
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/iconic/css/material-design-iconic-font.min.css">
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/util.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+    <!--===============================================================================================-->
+</head>
 
 <body>
-    <input type="hidden" name="id" />
-    <input type="text" name="uname" />
-    <input type="text" name="title" />
-    <input type="text" name="blog" />
-    <input type="submit" />
+    <!--  <form method="POST" action="/addblog">
+        <input type="hidden" name="id" />
+        <input type="text" name="name" />
+        <input type="text" name="title" />
+        <input type="textarea" name="blog" />
+        <input type="submit" onclick="window.location.href='blog'" />
+    </form> -->
+
+    <div class="container-login100" style="background-image: url('images/bg.png');">
+        <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+            <form class="login100-form validate-form" method="POST" action="/addblog">
+                <span class="login100-form-title p-b-37">
+                    Blog
+                </span>
+                <h5>We are there for you</h5>
+                <br>
+
+                <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+                    <input class="input100" type="text" name="name" placeholder="Username or Email">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter title for your blog">
+                    <input class="input100" type="text" name="title" placeholder="Title of the blog">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input m-b-25" data-validate="Enter the content of your blog">
+                    <textarea class="input100" type="text" name="blog" placeholder="Content" id="text"
+                        text="text"></textarea>
+                    <br>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                        Post
+                    </button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+
+
+    <!--===============================================================================================-->
+    <script src="/javascripts/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
 </body>
 
 </html>

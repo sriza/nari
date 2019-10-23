@@ -3,8 +3,9 @@
 <head></head>
 
 <body>
-    This is gynoinfo page.
-    <%= gyno_info.name%>
+    <% period.forEach(function(m) { %>
+    <img src=<%= m.hre%> />
+    <% })%>
 </body>
 
 </html>

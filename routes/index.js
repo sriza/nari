@@ -6,13 +6,16 @@ const bcrypt = require('bcrypt');
 //databases, Schema 
 var Gyno = require('../models/gyno_info');
 var User = require('../models/user');
+var Blog = require('../models/blog');
+var Period = require('../models/periods');
+
 
 
 /* Landing page */
-/*
 router.get('/', function (req, res, next) {
-  res.render('landing_page', { title: 'NARI' });
+  res.render('home', { title: 'NARI' });
 });
+/*
 
 router.get('/signin', function (req, res, next) {
   var email = req.body.email;
@@ -44,6 +47,53 @@ router.get('/gyno', function (req, res, next) {
   }
   )
 });
+//period exercise
+router.get('/periods', function (req, res, next) {
+  Period.find().exec((err, period) => {
+    res.render('exercise', { period });
+    console.log('.........data', period);
+    return period;
+  })
+
+})
+
+
+
+
+
+//Form of blog
+
+router.get('/blogform', function (req, res, next) {
+  res.render('blog_form');
+});
+
+router.post('/addblog', function (req, res, next) {
+
+  var blog = new Blog({
+    name: req.body.name,
+    title: req.body.title,
+    blog: req.body.blog,
+  })
+
+  var promise = blog.save();
+  promise.then((blog) => {
+    console.log('Blog saved', blog);
+    res.redirect('/gyno');
+  })
+
+
+});
+
+
+//blog
+router.get('/blog', function (req, res, next) {
+  Blog.find().exec((err, blog) => {
+    res.render('blog', { blog });
+    console.log('....... data', blog);
+    return blog;
+  }
+  )
+});
 
 
 //User Registration
@@ -53,10 +103,9 @@ router.get('/signup', async function (req, res, next) {
 
 router.post('/adduser', function (req, res, next) {
   console.log(req.body);
-  //creating a variable for 
   User.find({ email: req.body.email }).exec()
-    .then(user => {
-      if (user) {
+    .then(email => {
+      if (email) {
         return res.status(422).json({
           message: 'Mail exists'
         });
@@ -70,9 +119,10 @@ router.post('/adduser', function (req, res, next) {
           } else {
             const user = new User({
               email: req.body.email,
-              password: hash
+              password: hash,
+              age: req.body.age,
+              name: req.body.name,
             });
-
             user.save()
               .then(result => {
                 console.log(result);
@@ -96,15 +146,6 @@ router.post('/adduser', function (req, res, next) {
 
 
 
-router.get('/landingpage', function (req, res, next) {
-  var data = new User({
-    username: req.body.name,
-    password: req.body.password,
-  })
-
-  //var result = User.findOne("name" = username);
-
-})
 
 
 
