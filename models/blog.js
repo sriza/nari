@@ -13,6 +13,7 @@ let blogs = new Schema({
     bookmark: Number,
     views: Number,
     comment: {
+        com_id: Number,
         com_name: String,
         comment_text: String,
     }

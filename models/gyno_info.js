@@ -5,7 +5,7 @@ let gynos = new Schema({
     name: String,
     position: String,
     affiliated: String,
-    currently_working: String,
+    currently: String,
     phone: String,
 });
 

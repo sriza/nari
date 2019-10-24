@@ -15,8 +15,9 @@ var Period = require('../models/periods');
 router.get('/', function (req, res, next) {
   res.render('home', { title: 'NARI' });
 });
-/*
 
+
+//signin page
 router.get('/signin', function (req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
@@ -36,7 +37,7 @@ router.get('/signin', function (req, res, next) {
       console.log(error);
       next();
     });
-}) */
+})
 
 //Information of gynologist
 router.get('/gyno', function (req, res, next) {
@@ -47,6 +48,14 @@ router.get('/gyno', function (req, res, next) {
   }
   )
 });
+
+//exercise
+router.get('/exercise', function (req, res, next) {
+  res.render('exercise');
+})
+
+
+
 //period exercise
 router.get('/periods', function (req, res, next) {
   Period.find().exec((err, period) => {
@@ -85,7 +94,7 @@ router.post('/addblog', function (req, res, next) {
 });
 
 
-//blog
+//blog page
 router.get('/blog', function (req, res, next) {
   Blog.find().exec((err, blog) => {
     res.render('blog', { blog });
@@ -94,6 +103,35 @@ router.get('/blog', function (req, res, next) {
   }
   )
 });
+
+//one blog
+router.get('/blog/:_id', function (req, res, next) {
+
+  Blog.findOne({ _id: req.params._id }, function (err, blog) {
+    res.render('blogone', { blog });
+    console.log('blog selected .....', blog);
+  })
+});
+
+
+//delete blog
+router.get('/delete/:_id', function (req, res, next) {
+  Blog.deleteOne({ _id: req.params._id }, function (err, movie) {
+    console.log('blog deleted.....', blog);
+    res.redirect('/blog');
+  });
+
+})
+
+
+//edit blog
+router.get('/edit/:_id', function (req, res, next) {
+  Blog.findOne({ _id: req.params._id }, function (err, movie) {
+    console.log('blog selected....', blog);
+    res.render('updateMovie', { blog });
+  });
+})
+
 
 
 //User Registration
@@ -142,13 +180,6 @@ router.post('/adduser', function (req, res, next) {
     })
 
 });
-
-
-
-
-
-
-
 
 
 module.exports = router;

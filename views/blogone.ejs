@@ -1,0 +1,23 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <div>
+        <button class="button"><a href="/edit/<%= blog._id%>">Edit</a> </button>
+        <button class=" button"><a href="/delete/<%= blog._id%>">Delete</a></button>
+        <button class="button">Go Back </button>
+
+
+    </div>
+    <h2><%= blog.title %></h2>
+    <h4><%=blog.name %></h4>
+    <h4><%=blog.date %></h4>
+    <pre><%=blog.blog%></pre>
+
+</body>
+
+</html>
