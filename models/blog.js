@@ -5,6 +5,7 @@ let blogs = new Schema({
     name: String,
     title: String,
     blog: String,
+    desc: String,
     date: {
         type: Date,
         default: Date.now(),
@@ -14,6 +15,10 @@ let blogs = new Schema({
     views: Number,
     comment: {
         com_id: Number,
+        com_date: {
+            type: Date,
+            default: Date.now(),
+        },
         com_name: String,
         comment_text: String,
     }

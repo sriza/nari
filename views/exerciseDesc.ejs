@@ -1,9 +1,31 @@
+<!-- <html>
+
+<head>
+
+</head>
+
+<body>
+    <% period.forEach(function(per) { %>
+
+    <%=per.title%><br>
+    <img src=<%=per.href%>><br>
+    <%= per.description%><br>
+
+
+     <%if (per.src!=null)%>
+    <iframe src=<%=per.src%></iframe> frameborder="2"></iframe>
+    <%})%> 
+</body>
+
+</html> 
+-->
+
 <!DOCTYPE HTML>
 <html>
 <html lang="en">
 
 <head>
-    <title>TITLE</title>
+    <title>NARI | EXERCISE </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -49,7 +71,6 @@
     <link rel="stylesheet" href="/stylesheets/css/style.css">
 
 
-
 </head>
 <title>TITLE</title>
 
@@ -69,8 +90,8 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-                    <li class="nav-item active"><a href="/blog" class="nav-link">BLOGS</a></li>
-                    <li class="nav-item"><a href="/exercise" class="nav-link">EXERCISE</a></li>
+                    <li class="nav-item"><a href="/blog" class="nav-link">BLOGS</a></li>
+                    <li class="nav-item active"><a href="/exercise" class="nav-link">EXERCISE</a></li>
 
                     <li class="nav-item"><a href="/gyno" class="nav-link">GYNECOLOGIST</a></li>
                     <li class="nav-item cta"><a href="/signin" class="nav-link"><span>SIGN IN </span></a></li>
@@ -86,65 +107,64 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                        <h2>Share your story!</h2>
-                        <p>Your story motivates and inspires 100s of other women.</p>
-                        <div class="row d-flex justify-content-center mt-5">
-                            <div class="col-md-6">
-                                <form action="#" class="subscribe-form">
-                                    <div class="form-group">
-
-                                        <p><a href='/blogform' class="btn btn-primary mt-3 py-3 px-5">Share your
-                                                story</a></p>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                        <h2>Yoga Plans</h2>
+                        <p>
+                            <h5>Focus and exercise</h5>
+                        </p>
+                        <!--                         <div class="row d-flex justify-content-center mt-5">
+ -->
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+    </section>
+
+    <section class="ftco-section ftco-degree-bg">
+        <% period.forEach(function(per) { %>
+
+        <div class="container">
+            <p>
+                <h2 class="mb-3"><b>
+                        <%=per.title%></b>
+                </h2>
+                <br><br>
+            </p>
+            <%if (typeof per.href != 'undefined') { %>
+
+            <div style="text-align: center;">
+                <img alt="" style="height:50%; width:50%" class="img-fluid" src=<%= per.href%>>
+            </div><br><br>
+
+            <%}%>
+            <p style="text-align: justify;"><%= per.description%></p>
+            <div>
+
+
+
+                <%if (typeof per.src != 'undefined') { %>
+
+                <br>
+                <h4>Let's do it together with our instructor</h4>
+                <br>
+                <br>
+                <iframe height="600" width="1000" src=<%= per.src%>> </iframe> <br>
+                <% } %>
+
+                <br>
+            </div>
+            <hr>
+
+            <br>
+
+        </div>
+        <%})%>
     </section>
 
 
 
-    <section class="blog-area section">
-        <div class="container">
-
-            <div class="row">
-
-                <% blog.forEach(function(blog) { %>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="single-post post-style-1">
-
-                            <div class="blog-image"><img src="images/im.png" alt="Blog Image"></div>
-
-                            <a class="avatar" href="#"><img src="images/girl.png" alt="Profile Image"></a>
-
-                            <div class="blog-info">
-
-                                <h4 class="title"><a href="/blog/<%= blog._id%>"><b><%= blog.title%>
-                                        </b></a></h4>
-
-                                <ul class="post-footer">
-                                    <!-- <li><a href="#"><i class="button"></i>Read More</a></li> -->
-                                    <li><a href="/blog/<%= blog._id%>"><i class="Read More"></i>Read More</a></li>
-                                </ul>
-
-                            </div><!-- blog-info -->
-                        </div><!-- single-post -->
-                    </div><!-- card -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-                <% }) %>
 
 
-            </div><!-- row -->
-
-            <a class="load-more-btn" href="#"><b>Load More</b></a>
-
-        </div><!-- container -->
-    </section><!-- section -->
 
     <footer>
 
@@ -158,16 +178,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-section">
                         <h5 class="title">ALL RIGHTS RESERVED © 2019 nari</h5>
-                        <!-- <ul>
-							<li><a href="#">BEAUTY</a></li>
-							<li><a href="#">HEALTH</a></li>
-							<li><a href="#">MUSIC</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">SPORT</a></li>
-							<li><a href="#">DESIGN</a></li>
-							<li><a href="#">TRAVEL</a></li>
-						</ul> -->
+
                     </div><!-- footer-section -->
                 </div><!-- col-lg-4 col-md-6 -->
 
@@ -217,6 +228,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script> -->
     <script src="/javascripts/js/js/main.js"></script>
+
 
 
 </body>

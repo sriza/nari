@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let periods = new Schema({
+let second_trimester = new Schema({
     title: String,
     href: String,
     description: String,
     src: String,
-});
+}, { collection: 'second trimester' });
 
-module.exports = mongoose.model('Period', periods);
+module.exports = mongoose.model('SPreg', second_trimester);
 
