@@ -50,8 +50,9 @@
 
 
 
+
 </head>
-<title>TITLE</title>
+<title>NARI | HOME</title>
 
 <body>
 
@@ -64,90 +65,123 @@
                 <font color="white">We Celebrate Womanhood</font>
             </a>
 
-
-
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-                    <li class="nav-item active"><a href="/blog" class="nav-link">BLOGS</a></li>
-                    <li class="nav-item"><a href="/ask" class="nav-link">ASK ME</a></li>
+                    <li class="nav-item cta"><a href="/signin" class="nav-link"><span>SIGN IN</span></a></li>
 
-                    <li class="nav-item"><a href="/exercise" class="nav-link">EXERCISE</a></li>
-
-                    <li class="nav-item"><a href="/gyno" class="nav-link">GYNECOLOGIST</a></li>
-                    <li class="nav-item cta"><a href="/logout" class="nav-link"><span>LOG OUT</span></a></li>
                 </ul>
-
-                <br>
             </div>
         </div>
     </nav>
+    <!-- END nav -->
+    <!-- <div class="js-fullheight"> -->
 
+
+    <!-- <header>
+            <a href="#" class="logo"><img src="images/nari.png" alt="Logo Image"></a>
+        </header>
+         -->
+
+    <div class="hero-wrap js-fullheight">
+        <div class="overlay"></div>
+        <div id="particles-js"></div>
+        <!-- <div class="container">
+        </div> -->
+        <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"> We celebrate
+                    <strong>Womanhood</strong><br> with you!</h1>
+                <p>
+                    <font color="#ffcccc">~Conquer from Within</font>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!--         
+        <div class="slider"></div>slider -->
+
+    <section class="blog-area section">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="images/download.jfif" alt="Blog Image"></div>
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="images/download.jfif" alt="Blog Image"></div>
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100">
+                        <div class="single-post post-style-1">
+
+                            <div class="blog-image"><img src="images/download.jfif" alt="Blog Image"></div>
+
+                        </div><!-- single-post -->
+
+                    </div><!-- card -->
+                </div><!-- col-lg-4 col-md-6 -->
+
+
+
+
+
+            </div><!-- row -->
+
+
+        </div><!-- container -->
+    </section><!-- section -->
 
     <section class="ftco-section-parallax">
         <div class="parallax-img d-flex align-items-center">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                        <h2>Share your story!</h2>
-                        <p>Your story motivates and inspires 100s of other women.</p>
-                        <div class="row d-flex justify-content-center mt-5">
-                            <div class="col-md-6">
-                                <form action="#" class="subscribe-form">
-                                    <div class="form-group">
+                        <h2>About Us</h2>
+                        <p>Nari is a web application which is basically built for women, to encourage them for healthy
+                            lifestyle, along with a platform where they can share their problems and experiences with
+                            other women without hesitating.
 
-                                        <p><a href='/blogform' class="btn btn-primary mt-3 py-3 px-5">Share your
-                                                story</a></p>
-                                    </div>
-                                </form>
-                            </div>
+                            It was built as a project for our fellowship programme in 2019 which was organized by Women
+                            Leaders in Technology.We decided to go with NARI. Nari is not just a web application but
+                            nari is us.We have given our heart and everything building it.
+
+                            We, being women proudly present NARI. We really hope this will be useful to everyone of you
+                            in any way and also thank you for appreciating and investing your precious time reading
+                            about us.</p>
+                        <div class="row d-flex justify-content-center mt-5">
+
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-    <section class="blog-area section">
-        <div class="container">
-
-            <div class="row">
-
-                <% blog.forEach(function(blog) { %>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="single-post post-style-1">
-
-                            <div class="blog-image"><img src="images/im.png" alt="Blog Image"></div>
-
-                            <a class="avatar" href="#"><img src="images/girl.png" alt="Profile Image"></a>
-
-                            <div class="blog-info">
-
-                                <h4 class="title"><a href="/blog/<%= blog._id%>"><b><%= blog.title%>
-                                        </b></a></h4>
-
-                                <ul class="post-footer">
-                                    <!-- <li><a href="#"><i class="button"></i>Read More</a></li> -->
-                                    <li><a href="/blog/<%= blog._id%>"><i class="Read More"></i>Read More</a></li>
-                                </ul>
-
-                            </div><!-- blog-info -->
-                        </div><!-- single-post -->
-                    </div><!-- card -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-                <% }) %>
-
-
-            </div><!-- row -->
-
-            <a class="load-more-btn" href="#"><b>Load More</b></a>
-
-        </div><!-- container -->
-    </section><!-- section -->
 
     <footer>
 
@@ -162,15 +196,15 @@
                     <div class="footer-section">
                         <h5 class="title">ALL RIGHTS RESERVED © 2019 nari</h5>
                         <!-- <ul>
-							<li><a href="#">BEAUTY</a></li>
-							<li><a href="#">HEALTH</a></li>
-							<li><a href="#">MUSIC</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">SPORT</a></li>
-							<li><a href="#">DESIGN</a></li>
-							<li><a href="#">TRAVEL</a></li>
-						</ul> -->
+                                    <li><a href="#">BEAUTY</a></li>
+                                    <li><a href="#">HEALTH</a></li>
+                                    <li><a href="#">MUSIC</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">SPORT</a></li>
+                                    <li><a href="#">DESIGN</a></li>
+                                    <li><a href="#">TRAVEL</a></li>
+                                </ul> -->
                     </div><!-- footer-section -->
                 </div><!-- col-lg-4 col-md-6 -->
 
@@ -183,7 +217,11 @@
     </footer>
 
 
+
     <!-- SCIPTS -->
+
+    <!-- <script src="common-js/jquery-3.1.1.min.js"></script> -->
+
 
     <script src="/javascripts/common-js/jquery-3.1.1.min.js"></script>
 
@@ -212,15 +250,14 @@
     <script src="/javascripts/js/js/jquery.animateNumber.min.js"></script>
     <script src="/javascripts/js/js/bootstrap-datepicker.js"></script>
     <!--     <script src="js/jquery.timepicker.min.js"></script>
- -->
+     -->
     <script src="/javascripts/js/js/particles.min.js"></script>
     <script src="/javascripts/js/js/particle.js"></script>
     <script src="/javascripts/js/js/scrollax.min.js"></script>
     <!-- <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script> -->
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        <script src="js/google-map.js"></script> -->
     <script src="/javascripts/js/js/main.js"></script>
-
 
 </body>
 
