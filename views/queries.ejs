@@ -48,6 +48,25 @@
     <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
     <link rel="stylesheet" href="/stylesheets/css/style.css">
 
+    <style type="text/css" media="all">
+        @import "/stylesheets/css/widgEditor.css";
+        @import "/stylesheets/css/widgContent.css";
+    </style>
+    <script type="text/javascript" src="/stylesheets/scripts/widgEditor.js"></script>
+
+
+
+    <!--     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/css/bootstrap.min.css">
+ -->
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/util.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+
 
 
 </head>
@@ -69,16 +88,15 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a href="/" class="nav-link">HOME</a></li>
-                    <li class="nav-item active"><a href="/blog" class="nav-link">BLOGS</a></li>
-                    <li class="nav-item"><a href="/ask" class="nav-link">ASK ME</a></li>
+                    <li class="nav-item "><a href="/blog" class="nav-link">BLOGS</a></li>
+                    <li class="nav-item active"><a href="/ask" class="nav-link">ASK ME</a></li>
 
                     <li class="nav-item"><a href="/exercise" class="nav-link">EXERCISE</a></li>
 
                     <li class="nav-item"><a href="/gyno" class="nav-link">GYNECOLOGIST</a></li>
                     <li class="nav-item cta"><a href="/logout" class="nav-link"><span>LOG OUT</span></a></li>
-                </ul>
 
-                <br>
+                </ul>
             </div>
         </div>
     </nav>
@@ -89,15 +107,16 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                        <h2>Share your story!</h2>
-                        <p>Your story motivates and inspires 100s of other women.</p>
+                        <h2>Ask us anything!</h2>
+                        <p></p>
                         <div class="row d-flex justify-content-center mt-5">
                             <div class="col-md-6">
                                 <form action="#" class="subscribe-form">
                                     <div class="form-group">
 
-                                        <p><a href='/blogform' class="btn btn-primary mt-3 py-3 px-5">Share your
-                                                story</a></p>
+                                        <p><a href='/blogform' class="btn btn-primary mt-3 py-3 px-5"
+                                                onclick="showdiv()">Have a query?</a>
+                                        </p>
                                     </div>
                                 </form>
                             </div>
@@ -106,41 +125,48 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
 
 
     <section class="blog-area section">
         <div class="container">
+            <div id="hidden div">
+                <form method="POST" action="/queries">
+                    <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
+                        <input class="input100" type="text" name="name" placeholder="name">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-25" data-validate="Enter title for your blog">
+                        <input class="input100" type="text" name="title" placeholder="Title of the blog">
+                        <span class="focus-input100"></span>
+                    </div>
+
+
+                    <div class="wrap-input100 validate-input m-b-25">
+                        <textarea id="noise" name="blog" class="widgEditor nothing">
+                                    </textarea>
+                        </fieldset>
+
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Post
+                        </button>
+                    </div>
+
+                </form>
+                <hr>
+            </div>
 
             <div class="row">
 
-                <% blog.forEach(function(blog) { %>
-                <div class="col-lg-4 col-md-6">
-                    <div class="card h-100">
-                        <div class="single-post post-style-1">
 
-                            <div class="blog-image"><img src="images/im.png" alt="Blog Image"></div>
-
-                            <a class="avatar" href="#"><img src="images/girl.png" alt="Profile Image"></a>
-
-                            <div class="blog-info">
-
-                                <h4 class="title"><a href="/blog/<%= blog._id%>"><b><%= blog.title%>
-                                        </b></a></h4>
-
-                                <ul class="post-footer">
-                                    <!-- <li><a href="#"><i class="button"></i>Read More</a></li> -->
-                                    <li><a href="/blog/<%= blog._id%>"><i class="Read More"></i>Read More</a></li>
-                                </ul>
-
-                            </div><!-- blog-info -->
-                        </div><!-- single-post -->
-                    </div><!-- card -->
-                </div><!-- col-lg-4 col-md-6 -->
-
-                <% }) %>
-
+                <!--  -->
 
             </div><!-- row -->
 
