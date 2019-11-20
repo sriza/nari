@@ -1,18 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let query = new Schema({
-    userId: String,
+let comment = new Schema({
     username: String,
-    description: String,
+    userid: String,
+    queryid: String,
+    comment: String,
     date: {
         type: Date,
         default: Date.now(),
     },
     like: Number,
-    comment: Number,
+
 }, {
-    collection: 'query'
+    collection: 'comments'
 });
 
-module.exports = mongoose.model('Query', query);
+module.exports = mongoose.model('Comment', comment);

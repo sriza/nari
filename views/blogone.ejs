@@ -48,6 +48,24 @@
     <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
     <link rel="stylesheet" href="/stylesheets/css/style.css">
 
+    <style>
+        .comment-wrapper .panel-body {
+            max-height: 650px;
+            overflow: auto;
+        }
+
+        .comment-wrapper .media-list .media img {
+            width: 64px;
+            height: 64px;
+            border: 2px solid #e5e7e8;
+        }
+
+        .comment-wrapper .media-list .media {
+            border-bottom: 1px dashed #efefef;
+            margin-bottom: 25px;
+        }
+    </style>
+
 
 
 </head>
@@ -108,41 +126,67 @@
         </div>
     </section>
 
-    <section class="ftco-section ftco-degree-bg">
+    <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 ftco-animate">
+                <div>
                     <p><%- blog.blog %></p>
 
-
+                    <hr>
                     </li>
                     </ul>
                     </li>
-
-                    <div class="comment-form-wrap pt-5">
-                        <div class="comment-form-wrap pt-5">
+                    <hr>
+                    <div>
+                        <div>
                             <h3 class="mb-5">Leave a comment</h3>
-                            <form action="#" class="p-5 bg-light">
-                                <div class="form-group">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name" placeholder="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email" placeholder="email">
-                                </div>
+                            <div class="row bootstrap snippets">
+                                <div style="width: 100%;">
+                                    <div class="comment-wrapper">
+                                        <div class="panel panel-info">
+                                            <div class="panel-heading">
+                                                Comment panel
+                                            </div>
+                                            <div class="panel-body">
+                                                <form method="POST" action="/bcomment">
+                                                    <input type="hidden" name="_id" value="<%= blog._id%>" />
+
+                                                    <textarea class="form-control" placeholder="write a comment..."
+                                                        name="comment" rows="3"></textarea>
+                                                    <br>
+                                                    <input type="submit" class="btn btn-info pull-right" value="POST"
+                                                        style="background-color: indianred;">
+                                                    <div class="clearfix"></div>
+                                                    <hr>
+                                                </form>
 
 
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea name="" id="message" cols="30" rows="10" class="form-control"
-                                        placeholder="Comment"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-                                </div>
+                                                <ul class="comments-list" style="margin-left:3%; margin-right: 3%;">
+                                                    <% comment.forEach(function(comment) { %>
+                                                    <hr>
+                                                    <div class="media-body">
+                                                        <span class="text-muted pull-right">
+                                                            <small class="text-muted"><%= comment.date%></small>
+                                                        </span>
+                                                        <strong style="color:pink ;">@<%=comment.username%></strong>
+                                                        <p>
+                                                            <%= comment.comment%>
+                                                        </p>
+                                                    </div>
 
-                            </form>
+
+
+                                                    <%})%>
+                                                </ul>
+
+
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -153,53 +197,11 @@
                     </div>
 
 
-                    <div class="sidebar-box ftco-animate">
-                        <h3>Recent Blog</h3>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(/images/im.png);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Reiciendis, eius mollitia suscipit, </a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(/images/im.png);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Reiciendis, eius mollitia suscipit, </a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="block-21 mb-4 d-flex">
-                            <a class="blog-img mr-4" style="background-image: url(/images/im.png);"></a>
-                            <div class="text">
-                                <h3 class="heading"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Reiciendis, eius mollitia suscipit, </a></h3>
-                                <div class="meta">
-                                    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                                    <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                                    <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
 
                 </div>
-
             </div>
-        </div>
     </section> <!-- .section -->
+
 
 
 

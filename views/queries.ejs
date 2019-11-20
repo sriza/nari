@@ -48,24 +48,35 @@
     <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
     <link rel="stylesheet" href="/stylesheets/css/style.css">
 
-    <style type="text/css" media="all">
-        @import "/stylesheets/css/widgEditor.css";
-        @import "/stylesheets/css/widgContent.css";
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/query.css">
+
+
+    <style>
+        #askq {
+            display: none;
+        }
+
+
+
+        textarea {
+            /* box-sizing: padding-box; */
+            overflow: hidden;
+            /* demo only: */
+            padding: 10px;
+            width: 250px;
+            font-size: 14px;
+            margin: 50px auto;
+            display: block;
+            border-radius: 10px;
+            border: 2px solid;
+            border-block-color: pink black pink;
+        }
     </style>
-    <script type="text/javascript" src="/stylesheets/scripts/widgEditor.js"></script>
 
 
-
-    <!--     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/css/bootstrap.min.css">
- -->
-    <!--===============================================================================================-->
-
-    <!--===============================================================================================-->
-
-
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/util.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
 
 
 
@@ -95,11 +106,11 @@
 
                     <li class="nav-item"><a href="/gyno" class="nav-link">GYNECOLOGIST</a></li>
                     <li class="nav-item cta"><a href="/logout" class="nav-link"><span>LOG OUT</span></a></li>
-
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
     <section class="ftco-section-parallax">
@@ -107,15 +118,17 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-                        <h2>Ask us anything!</h2>
-                        <p></p>
+                        <h2>Got any question?</h2>
+                        <p>Let women like you help you solve them</p>
                         <div class="row d-flex justify-content-center mt-5">
                             <div class="col-md-6">
                                 <form action="#" class="subscribe-form">
                                     <div class="form-group">
 
-                                        <p><a href='/blogform' class="btn btn-primary mt-3 py-3 px-5"
-                                                onclick="showdiv()">Have a query?</a>
+                                        <p><a href="#" class="btn btn-primary mt-3 py-3 px-5"
+                                                onclick="document.getElementById('askq').style.display='block'">Have
+                                                a
+                                                query?</a>
                                         </p>
                                     </div>
                                 </form>
@@ -125,80 +138,155 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
-
-
-    <section class="blog-area section">
+    <section style="background-color: #EDF3F3;">
         <div class="container">
-            <div id="hidden div">
-                <form method="POST" action="/queries">
-                    <div class="wrap-input100 validate-input m-b-20" data-validate="Enter username">
-                        <input class="input100" type="text" name="name" placeholder="name">
-                        <span class="focus-input100"></span>
-                    </div>
-
-                    <div class="wrap-input100 validate-input m-b-25" data-validate="Enter title for your blog">
-                        <input class="input100" type="text" name="title" placeholder="Title of the blog">
-                        <span class="focus-input100"></span>
-                    </div>
 
 
-                    <div class="wrap-input100 validate-input m-b-25">
-                        <textarea id="noise" name="blog" class="widgEditor nothing">
-                                    </textarea>
-                        </fieldset>
 
-                        <span class="focus-input100"></span>
-                    </div>
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Post
-                        </button>
-                    </div>
 
-                </form>
-                <hr>
-            </div>
+
 
             <div class="row">
+                <div style="width: 100%;">
 
 
-                <!--  -->
 
-            </div><!-- row -->
+                    <div style="width: 100%;">
+                        <!-- here you go writing -->
+                        <br>
+                        <div class="panel panel-white post panel-shadow" id="askq" style="align-items: center;">
+                            <form action="/addquery" method="POST">
 
-            <a class="load-more-btn" href="#"><b>Load More</b></a>
 
-        </div><!-- container -->
-    </section><!-- section -->
+                                <p style="margin:15px">Let women like you help you solve them</p>
+
+                                <textarea row=10 name='question'
+                                    style="border-block-color: pink black pink ; margin:15px; width: 95%; border-radius: 5px;"></textarea>
+                                <button type="submit" class="btn btn-success pink"
+                                    style="background-color:#ee76ad; width: min-content; margin-left: 25px;margin-bottom: 20px;">ASK</button>
+                                <br>
+
+                            </form>
+                        </div>
+                        <br>
+                    </div>
+
+                    <link rel="stylesheet" type="text/css"
+                        href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+
+                    <% queries.forEach(function(query) { %>
+
+                    <div class="container" style="margin-bottom: 3%">
+                        <div>
+                            <div class="panel panel-white post panel-shadow" style="background-color: white;">
+                                <div class="post-heading">
+                                    <div class="pull-left image">
+                                        <img src="/images/girl.png" class="img-circle avatar" alt="user profile image">
+                                    </div>
+                                    <div class="pull-left meta">
+                                        <div class="title h5">
+                                            <a href="#"><b><%= query.username %></b></a>
+                                            made a post.
+                                        </div>
+                                        <h6 class="text-muted time"><%= query.date %></h6>
+                                    </div>
+                                </div>
+                                <div class="post-description">
+                                    <p><%= query.description %></p>
+                                    <form method='POST' action=''></form>
+                                    <div name="postid" style="display:none"><%= query.id%></div>
+
+                                    <!-- <div class="stats">
+                                        <a href="/like" class="btn btn-default stat-item">
+                                            <i class="fa fa-thumbs-up icon"></i><%= query.like%>
+                                        </a>
+                                        <a href="#" class="btn btn-default stat-item" >
+                                            <i class=" fa fa-comment icon"></i><%= query.comment%>
+
+
+                                        </a>
+
+
+
+                                    </div> -->
+                                    </form>
+                                </div>
+
+                                <div>
+                                    <div class="post-footer">
+                                        <form method="POST" action="addcomment">
+                                            <div class="input-group">
+                                                <input type="hidden" name="_id" value="<%= query._id%>" />
+                                            </div>
+
+                                            <input class="form-control" row=5 placeholder="Add a comment" type="text"
+                                                name='comment'>
+                                            <span class="input-group-addon"
+                                                style="background-color: white; align-items: flex-end;">
+                                                <button type="submit" class="btn btn-success pink"
+                                                    style="background-color:#ee76ad; width: min-content;">ADD</button>
+                                            </span>
+                                        </form>
+                                    </div>
+
+                                    <ul class="comments-list" style="margin-left:3%; margin-right: 3%;">
+                                        <% comment.forEach(function(comment) { %>
+
+                                        <%if (comment.queryid==query._id) { %>
+                                        <hr>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted"><%= comment.date%></small>
+                                            </span>
+                                            <strong style="text-decoration-color:pink ;">@<%=comment.username%></strong>
+                                            <p>
+                                                <%= comment.comment%>
+                                            </p>
+                                        </div>
+
+
+                                        <%}%>
+
+                                            <%})%>
+                                    </ul>
+                                    <br>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <%})%>
+                    <!-- until here -->
+
+
+                    
+
+                </div>
+            </div>
+    </section> <!-- .section -->
+
+
+
 
     <footer>
 
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-4 col-md-6">
 
-                </div><!-- col-lg-4 col-md-6 -->
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="footer-section">
-                        <h5 class="title">ALL RIGHTS RESERVED © 2019 nari</h5>
-                        <!-- <ul>
-							<li><a href="#">BEAUTY</a></li>
-							<li><a href="#">HEALTH</a></li>
-							<li><a href="#">MUSIC</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">SPORT</a></li>
-							<li><a href="#">DESIGN</a></li>
-							<li><a href="#">TRAVEL</a></li>
-						</ul> -->
-                    </div><!-- footer-section -->
-                </div><!-- col-lg-4 col-md-6 -->
+                <div class="footer-section">
+                    <h5 class="title" style="align-content: center;">
+                        ALL RIGHTS RESERVED © 2019 nari
+                    </h5>
+
+                </div><!-- footer-section -->
+
 
 
             </div><!-- footer-section -->
@@ -246,8 +334,6 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script> -->
     <script src="/javascripts/js/js/main.js"></script>
-
-
 </body>
 
 </html>
