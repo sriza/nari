@@ -9,8 +9,6 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const mongoose = require('mongoose');
 
-
-const User = require('./models/user');
 const session = require('express-session');
 
 var app = express();
@@ -53,7 +51,7 @@ app.use(express.urlencoded({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// use static serialize and deserialize of model for passport session support
+/* // use static serialize and deserialize of model for passport session support
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -67,7 +65,7 @@ passport.deserializeUser((id, done) => {
     .catch((error) => {
       console.log(`Error: ${error}`);
     });
-});
+}); */
 
 
 
