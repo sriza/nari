@@ -59,9 +59,7 @@
             display: none;
         }
 
-        .post-footer {
-            display: none;
-        }
+
 
         textarea {
             /* box-sizing: padding-box; */
@@ -73,7 +71,7 @@
             margin: 50px auto;
             display: block;
             border-radius: 10px;
-            border: 6px solid;
+            border: 2px solid;
             border-block-color: pink black pink;
         }
     </style>
@@ -159,16 +157,17 @@
                     <div style="width: 100%;">
                         <!-- here you go writing -->
                         <br>
-                        <div class="panel panel-white post panel-shadow" id="askq">
+                        <div class="panel panel-white post panel-shadow" id="askq" style="align-items: center;">
                             <form action="/addquery" method="POST">
+
+
                                 <p style="margin:15px">Let women like you help you solve them</p>
 
                                 <textarea row=10 name='question'
-                                    style="border-block-color: pink black pink ; margin:15px; width: 90%; border-radius: 5px;"></textarea>
-
-
-                                <input id="button" type="submit" value="ASK" />
-
+                                    style="border-block-color: pink black pink ; margin:15px; width: 95%; border-radius: 5px;"></textarea>
+                                <button type="submit" class="btn btn-success pink"
+                                    style="background-color:#ee76ad; width: min-content; margin-left: 25px;margin-bottom: 20px;">ASK</button>
+                                <br>
 
                             </form>
                         </div>
@@ -177,6 +176,7 @@
 
                     <link rel="stylesheet" type="text/css"
                         href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
 
                     <% queries.forEach(function(query) { %>
 
@@ -200,75 +200,74 @@
                                     <form method='POST' action=''></form>
                                     <div name="postid" style="display:none"><%= query.id%></div>
 
-                                    <div class="stats">
+                                    <!-- <div class="stats">
                                         <a href="/like" class="btn btn-default stat-item">
                                             <i class="fa fa-thumbs-up icon"></i><%= query.like%>
                                         </a>
-                                        <a href="#" class="btn btn-default stat-item"
-                                            onclick="document.getElementById('one').style.display='block'">
-                                            <i class="fa fa-comment icon"></i><%= query.comment%>
+                                        <a href="#" class="btn btn-default stat-item" >
+                                            <i class=" fa fa-comment icon"></i><%= query.comment%>
 
 
                                         </a>
 
 
 
-                                    </div>
+                                    </div> -->
                                     </form>
                                 </div>
-                                <div class="post-footer" id='one'>
-                                    <form method="POST" action="addcomment">
-                                        <div class="input-group">
-                                            <input type="hidden" name="_id" value="<%= query._id%>" />
+
+                                <div>
+                                    <div class="post-footer">
+                                        <form method="POST" action="addcomment">
+                                            <div class="input-group">
+                                                <input type="hidden" name="_id" value="<%= query._id%>" />
+                                            </div>
+
+                                            <input class="form-control" row=5 placeholder="Add a comment" type="text"
+                                                name='comment'>
+                                            <span class="input-group-addon"
+                                                style="background-color: white; align-items: flex-end;">
+                                                <button type="submit" class="btn btn-success pink"
+                                                    style="background-color:#ee76ad; width: min-content;">ADD</button>
+                                            </span>
+                                        </form>
+                                    </div>
+
+                                    <ul class="comments-list" style="margin-left:3%; margin-right: 3%;">
+                                        <% comment.forEach(function(comment) { %>
+
+                                        <%if (comment.queryid==query._id) { %>
+                                        <hr>
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted"><%= comment.date%></small>
+                                            </span>
+                                            <strong style="text-decoration-color:pink ;">@<%=comment.username%></strong>
+                                            <p>
+                                                <%= comment.comment%>
+                                            </p>
                                         </div>
 
-                                        <input class="form-control" placeholder="Add a comment" type="text"
-                                            name='comment'>
-                                        <span class="input-group-addon">
-                                            <button type="submit" class="btn btn-success pink"><i
-                                                    class="fa fa-share"></i> ADD</button> </span>
-                                    </form>
-                                </div>
 
-                                <ul class="comments-list" style="margin-left:3%; margin-right: 3%;">
-                                    <% comment.forEach(function(comment) { %>
-
-                                    <%if (comment.queryid==query._id) { %>
-                                    <hr>
-                                    <div class="media-body">
-                                        <span class="text-muted pull-right">
-                                            <small class="text-muted"><%= comment.date%></small>
-                                        </span>
-                                        <strong style="text-decoration-color:pink ;">@<%=comment.username%></strong>
-                                        <p>
-                                            <%= comment.comment%>
-                                        </p>
-                                    </div>
-
-
-                                    <%}%>
+                                        <%}%>
 
                                             <%})%>
-                                </ul>
+                                    </ul>
+                                    <br>
+                                </div>
+
                             </div>
                         </div>
                     </div>
+
+                    <%})%>
+                    <!-- until here -->
+
+
+                    
+
                 </div>
-
-                <%})%>
-                <!-- until here -->
-
-
-                <div class="col-md-4 sidebar ftco-animate order-first">
-                    <div class="sidebar-box">
-
-                    </div>
-                </div>
-
-
-
             </div>
-        </div>
     </section> <!-- .section -->
 
 

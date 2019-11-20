@@ -154,7 +154,8 @@
                                                     <textarea class="form-control" placeholder="write a comment..."
                                                         name="comment" rows="3"></textarea>
                                                     <br>
-                                                    <input type="submit" class="btn btn-info pull-right" value="POST">
+                                                    <input type="submit" class="btn btn-info pull-right" value="POST"
+                                                        style="background-color: indianred;">
                                                     <div class="clearfix"></div>
                                                     <hr>
                                                 </form>
@@ -162,7 +163,7 @@
 
                                                 <ul class="comments-list" style="margin-left:3%; margin-right: 3%;">
                                                     <% comment.forEach(function(comment) { %>
-
+                                                    <hr>
                                                     <div class="media-body">
                                                         <span class="text-muted pull-right">
                                                             <small class="text-muted"><%= comment.date%></small>

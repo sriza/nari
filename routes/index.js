@@ -35,6 +35,8 @@ var Bcomment = require('../models/bcomment');
 
 
 
+
+
 //landing page
 router.get('/', forwardAuthenticated, function (req, res, next) {
   res.render('landingpage', {
@@ -151,6 +153,7 @@ module.exports = router;
 
 //home
 router.get('/home', ensureAuthenticated, function (req, res, next) {
+
   res.render('home', {
     title: 'NARI',
     user: req.user
