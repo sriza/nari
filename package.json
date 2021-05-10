@@ -20,7 +20,7 @@
     "faker": "^4.1.0",
     "http-errors": "~1.6.3",
     "ibm-watson": "^5.1.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.12",
     "morgan": "~1.9.1",
