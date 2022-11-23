@@ -28,7 +28,7 @@
     "passport-local": "^1.0.0",
     "pusher": "^3.0.0",
     "say": "^0.16.0",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.5.0",
     "speak-tts": "^2.0.8"
   },
   "main": "app.js",
